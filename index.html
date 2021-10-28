@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"
+        />
+
+        <link rel="stylesheet" href="./src/styles/styles.scss" />
+        <title>Recipe App</title>
+    </head>
+
+    <body>
+        <div class="mobile-cont">
+            <header>
+                <input type="text" id="search" autocomplete="off" />
+                <button id="searchbtn"><i class="fas fa-search"></i></button>
+            </header>
+
+            <div class="fav-cont">
+                <h3>Favorite Meals</h3>
+                <ul class="fav-meals" id="favcont"></ul>
+            </div>
+            <div class="meals">
+                <div class="meal" id="meals"></div>
+            </div>
+        </div>
+        <div id="meal-popup" class="popup-cont hidden">
+            <div id="popup-info" class="popup-info">
+                <button class="close-pop" id="closepop">
+                    <i class="far fa-window-close"></i>
+                </button>
+                <div>
+                    <div class="meal-info" id="meal-info"></div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="./src/script/script.js"></script>
+    </body>
+</html>

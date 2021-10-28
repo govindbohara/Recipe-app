@@ -1,0 +1,218 @@
+@use 'reset';
+@use 'root';
+@use 'mixins' as *;
+
+::-webkit-scrollbar {
+    appearance: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #b3cdd1;
+    background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+    transition: all 0.5s ease-in-out;
+
+    .mobile-cont {
+        img {
+            max-width: 100%;
+        }
+
+        width: 400px;
+        background-color: #fff;
+        box-shadow: 0 0 10px 2px #3333331a;
+        border-radius: 3px;
+        outline: none;
+        border: 1px solid var(--clr-purple-900);
+        overflow: hidden;
+
+        header {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            input {
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 0.3rem;
+                background-color: rgb(170, 169, 169);
+                font-family: inherit;
+            }
+            button {
+                border: none;
+                margin-left: 1rem;
+                font-size: 1.5rem;
+                color: rgba(61, 14, 24, 0.692);
+            }
+        }
+
+        .fav-cont {
+            padding: 0.25rem 1rem;
+            text-align: center;
+            background-color: rgb(247, 245, 245);
+
+            .fav-meals {
+                display: flex;
+                list-style-type: none;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: center;
+                max-width: 100%;
+                overflow-x: scroll;
+            }
+            .fav-meals li {
+                position: relative;
+                width: 80px;
+                margin: 5px;
+                cursor: pointer;
+            }
+            .fav-meals li .clear {
+                position: absolute;
+                top: -0.3rem;
+                right: 0.2rem;
+                border: none;
+                color: #000000;
+                font-size: 1.1rem;
+                opacity: 0;
+                cursor: pointer;
+            }
+            .fav-meals li:hover .clear {
+                opacity: 1;
+            }
+
+            .fav-meals img {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid rgb(238, 134, 134);
+                box-shadow: 0 0 10px 2px #3333331a;
+                background-color: #a8a7a7;
+            }
+            .fav-meals li span {
+                font-size: 0.9rem;
+                font-weight: bold;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 75px;
+                display: inline-block;
+
+                &:hover {
+                    white-space: normal;
+                    overflow: visible;
+                }
+            }
+        }
+        .meal {
+            margin: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 2px #3333331a;
+
+            .meal-head {
+                position: relative;
+            }
+
+            .meal-head .random {
+                position: absolute;
+                top: 1rem;
+                background-color: #ffffff;
+                padding: 0.25rem 1rem;
+                border-bottom-right-radius: 3px;
+                border-top-right-radius: 3px;
+            }
+
+            .meal-head img {
+                height: 250px;
+                width: 100%;
+                object-fit: cover;
+                background-color: #f37e11;
+            }
+        }
+        .meal-body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem;
+        }
+
+        .meal-body h4 {
+            margin: 0;
+        }
+
+        .meal-body .fav-btn {
+            background-color: transparent;
+            border: none;
+            font-size: 1.2rem;
+            color: #a8a7a7;
+            cursor: pointer;
+        }
+        .meal-body .fav-btn.active {
+            color: red;
+        }
+    }
+    .popup-cont {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .popup-info {
+            background-color: #fff;
+            width: 100%;
+            max-width: 600px;
+            max-height: 100vh;
+            overflow: auto;
+            padding: 7px;
+            font-family: inherit;
+            border-radius: 1rem;
+            position: relative;
+
+            h1 {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            img {
+                // overflow: hidden;
+                // object-fit: cover;
+                width: 100%;
+                padding: 1rem;
+            }
+            p {
+                padding: 5px;
+
+                font-size: 1.2rem;
+            }
+            ul {
+                font-size: 1.2rem;
+                margin-left: 1rem;
+            }
+
+            .close-pop {
+                position: absolute;
+                top: 0.4rem;
+                right: 1rem;
+                border: none;
+                background-color: transparent;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+}
